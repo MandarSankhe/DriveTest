@@ -1,0 +1,432 @@
+[debug] [2024-08-17T21:56:30.755Z] ----------------------------------------------------------------------
+[debug] [2024-08-17T21:56:30.757Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\manda\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2024-08-17T21:56:30.758Z] CLI Version:   13.15.2
+[debug] [2024-08-17T21:56:30.758Z] Platform:      win32
+[debug] [2024-08-17T21:56:30.758Z] Node Version:  v20.13.0
+[debug] [2024-08-17T21:56:30.758Z] Time:          Sat Aug 17 2024 17:56:30 GMT-0400 (Eastern Daylight Saving Time)
+[debug] [2024-08-17T21:56:30.758Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-08-17T21:56:30.803Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-08-17T21:56:30.804Z] > authorizing via signed-in user (mandarsankhe97@gmail.com)
+[debug] [2024-08-17T21:56:30.804Z] [iam] checking project drivetestmandarsankhe for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2024-08-17T21:56:30.805Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/drivetestmandarsankhe:testIamPermissions [none]
+[debug] [2024-08-17T21:56:30.805Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/drivetestmandarsankhe:testIamPermissions x-goog-quota-user=projects/drivetestmandarsankhe
+[debug] [2024-08-17T21:56:30.805Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/drivetestmandarsankhe:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-08-17T21:56:31.143Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/drivetestmandarsankhe:testIamPermissions 200
+[debug] [2024-08-17T21:56:31.143Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/drivetestmandarsankhe:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-08-17T21:56:31.144Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/drivetestmandarsankhe/serviceAccounts/drivetestmandarsankhe@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-08-17T21:56:31.144Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/drivetestmandarsankhe/serviceAccounts/drivetestmandarsankhe@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-08-17T21:56:31.451Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/drivetestmandarsankhe/serviceAccounts/drivetestmandarsankhe@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-08-17T21:56:31.451Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/drivetestmandarsankhe/serviceAccounts/drivetestmandarsankhe@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'drivetestmandarsankhe'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm run lint
+[info] +  functions: Finished running predeploy script. 
+[debug] [2024-08-17T21:56:32.349Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/drivetestmandarsankhe [none]
+[debug] [2024-08-17T21:56:32.752Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/drivetestmandarsankhe 200
+[debug] [2024-08-17T21:56:32.752Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/drivetestmandarsankhe {"projectId":"drivetestmandarsankhe","projectNumber":"152744818200","displayName":"drivetest","name":"projects/drivetestmandarsankhe","resources":{"hostingSite":"drivetestmandarsankhe"},"state":"ACTIVE","etag":"1_aaaba7f7-d8cb-448a-b1fa-4f36d7bb27eb"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2024-08-17T21:56:32.755Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-08-17T21:56:32.755Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/drivetestmandarsankhe
+[debug] [2024-08-17T21:56:32.756Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-08-17T21:56:32.756Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/drivetestmandarsankhe
+[debug] [2024-08-17T21:56:32.757Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/cloudbuild.googleapis.com [none]
+[debug] [2024-08-17T21:56:32.757Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/cloudbuild.googleapis.com x-goog-quota-user=projects/drivetestmandarsankhe
+[debug] [2024-08-17T21:56:32.758Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/artifactregistry.googleapis.com [none]
+[debug] [2024-08-17T21:56:32.758Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/artifactregistry.googleapis.com x-goog-quota-user=projects/drivetestmandarsankhe
+[debug] [2024-08-17T21:56:33.108Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/runtimeconfig.googleapis.com 200
+[debug] [2024-08-17T21:56:33.108Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-08-17T21:56:33.115Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/artifactregistry.googleapis.com 200
+[debug] [2024-08-17T21:56:33.116Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2024-08-17T21:56:33.137Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/cloudbuild.googleapis.com 200
+[debug] [2024-08-17T21:56:33.137Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2024-08-17T21:56:33.151Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/cloudfunctions.googleapis.com 200
+[debug] [2024-08-17T21:56:33.151Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2024-08-17T21:56:33.152Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/drivetestmandarsankhe/adminSdkConfig [none]
+[debug] [2024-08-17T21:56:33.442Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/drivetestmandarsankhe/adminSdkConfig 200
+[debug] [2024-08-17T21:56:33.442Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/drivetestmandarsankhe/adminSdkConfig {"projectId":"drivetestmandarsankhe","storageBucket":"drivetestmandarsankhe.appspot.com"}
+[debug] [2024-08-17T21:56:33.443Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/drivetestmandarsankhe/configs [none]
+[debug] [2024-08-17T21:56:33.598Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/drivetestmandarsankhe/configs 200
+[debug] [2024-08-17T21:56:33.598Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/drivetestmandarsankhe/configs {}
+[debug] [2024-08-17T21:56:33.600Z] Validating nodejs source
+[debug] [2024-08-17T21:56:34.325Z] > [functions] package.json contents: {
+  "name": "drive-test",
+  "version": "1.0.0",
+  "description": "Assignment 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "lint": "eslint ."
+  },
+  "engines": {
+    "node": "20"
+  },
+  "keywords": [
+    "drive",
+    "test"
+  ],
+  "author": "Mandar Sankhe",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "connect-flash": "^0.1.1",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-fileupload": "^1.5.0",
+    "express-session": "^1.18.0",
+    "firebase-functions": "^5.0.1",
+    "mongoose": "^8.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.9.0",
+    "nodemon": "^3.1.0"
+  }
+}
+[debug] [2024-08-17T21:56:34.325Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2024-08-17T21:56:34.328Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-08-17T21:56:34.336Z] Found firebase-functions binary at 'D:\Projects\FullStack Programming\Drive Test\node_modules\.bin\firebase-functions'
+[info] Serving at port 8334
+
+[error] Sat, 17 Aug 2024 21:56:34 GMT express-session deprecated undefined resave option; provide resave option at index.js:17:3
+
+[error] Sat, 17 Aug 2024 21:56:34 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at index.js:17:3
+
+[error] node:events:497
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::8334
+    at Server.setupListenHandle [as _listen2] (node:net:1898:16)
+    at listenInCluster (node:net:1946:12)
+    at Server.listen (node:net:2044:7)
+    at Function.listen (D:\Projects\FullStack Programming\Drive Test\node_modules\express\lib\application.js:635:24)
+    at Object.<anonymous> (D:\Projects\FullStack Programming\Drive Test\index.js:12:5)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1925:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 8334
+}
+
+Node.js v20.13.0
+
+[debug] [2024-08-17T21:56:34.939Z] Failed to call quitquitquit. This often means the server failed to start request to http://localhost:8334/__/quitquitquit failed, reason:  {"message":"request to http://localhost:8334/__/quitquitquit failed, reason: ","type":"system","errno":"ECONNREFUSED","code":"ECONNREFUSED"}
+[debug] [2024-08-17T21:56:35.049Z] FetchError: request to http://127.0.0.1:8334/__/functions.yaml failed, reason: read ECONNRESET
+    at ClientRequest.<anonymous> (C:\Users\manda\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\node-fetch\lib\index.js:1501:11)
+    at ClientRequest.emit (node:events:519:28)
+    at ClientRequest.emit (node:domain:488:12)
+    at Socket.socketErrorListener (node:_http_client:500:9)
+    at Socket.emit (node:events:519:28)
+    at Socket.emit (node:domain:488:12)
+    at emitErrorNT (node:internal/streams/destroy:169:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-08-17T21:57:53.611Z] ----------------------------------------------------------------------
+[debug] [2024-08-17T21:57:53.612Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\manda\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2024-08-17T21:57:53.613Z] CLI Version:   13.15.2
+[debug] [2024-08-17T21:57:53.613Z] Platform:      win32
+[debug] [2024-08-17T21:57:53.613Z] Node Version:  v20.13.0
+[debug] [2024-08-17T21:57:53.613Z] Time:          Sat Aug 17 2024 17:57:53 GMT-0400 (Eastern Daylight Saving Time)
+[debug] [2024-08-17T21:57:53.613Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-08-17T21:57:53.657Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-08-17T21:57:53.658Z] > authorizing via signed-in user (mandarsankhe97@gmail.com)
+[debug] [2024-08-17T21:57:53.658Z] [iam] checking project drivetestmandarsankhe for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2024-08-17T21:57:53.659Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/drivetestmandarsankhe:testIamPermissions [none]
+[debug] [2024-08-17T21:57:53.659Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/drivetestmandarsankhe:testIamPermissions x-goog-quota-user=projects/drivetestmandarsankhe
+[debug] [2024-08-17T21:57:53.660Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/drivetestmandarsankhe:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-08-17T21:57:53.950Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/drivetestmandarsankhe:testIamPermissions 200
+[debug] [2024-08-17T21:57:53.950Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/drivetestmandarsankhe:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-08-17T21:57:53.951Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/drivetestmandarsankhe/serviceAccounts/drivetestmandarsankhe@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-08-17T21:57:53.951Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/drivetestmandarsankhe/serviceAccounts/drivetestmandarsankhe@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-08-17T21:57:54.218Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/drivetestmandarsankhe/serviceAccounts/drivetestmandarsankhe@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-08-17T21:57:54.218Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/drivetestmandarsankhe/serviceAccounts/drivetestmandarsankhe@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'drivetestmandarsankhe'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm run lint
+[info] +  functions: Finished running predeploy script. 
+[debug] [2024-08-17T21:57:55.091Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/drivetestmandarsankhe [none]
+[debug] [2024-08-17T21:57:55.434Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/drivetestmandarsankhe 200
+[debug] [2024-08-17T21:57:55.434Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/drivetestmandarsankhe {"projectId":"drivetestmandarsankhe","projectNumber":"152744818200","displayName":"drivetest","name":"projects/drivetestmandarsankhe","resources":{"hostingSite":"drivetestmandarsankhe"},"state":"ACTIVE","etag":"1_aaaba7f7-d8cb-448a-b1fa-4f36d7bb27eb"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2024-08-17T21:57:55.436Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-08-17T21:57:55.436Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/drivetestmandarsankhe
+[debug] [2024-08-17T21:57:55.437Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-08-17T21:57:55.437Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/drivetestmandarsankhe
+[debug] [2024-08-17T21:57:55.438Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/cloudbuild.googleapis.com [none]
+[debug] [2024-08-17T21:57:55.438Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/cloudbuild.googleapis.com x-goog-quota-user=projects/drivetestmandarsankhe
+[debug] [2024-08-17T21:57:55.439Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/artifactregistry.googleapis.com [none]
+[debug] [2024-08-17T21:57:55.439Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/artifactregistry.googleapis.com x-goog-quota-user=projects/drivetestmandarsankhe
+[debug] [2024-08-17T21:57:55.762Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/cloudfunctions.googleapis.com 200
+[debug] [2024-08-17T21:57:55.762Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2024-08-17T21:57:55.764Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/runtimeconfig.googleapis.com 200
+[debug] [2024-08-17T21:57:55.765Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-08-17T21:57:55.767Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/artifactregistry.googleapis.com 200
+[debug] [2024-08-17T21:57:55.767Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2024-08-17T21:57:55.780Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/cloudbuild.googleapis.com 200
+[debug] [2024-08-17T21:57:55.781Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2024-08-17T21:57:55.781Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/drivetestmandarsankhe/adminSdkConfig [none]
+[debug] [2024-08-17T21:57:56.133Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/drivetestmandarsankhe/adminSdkConfig 200
+[debug] [2024-08-17T21:57:56.133Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/drivetestmandarsankhe/adminSdkConfig {"projectId":"drivetestmandarsankhe","storageBucket":"drivetestmandarsankhe.appspot.com"}
+[debug] [2024-08-17T21:57:56.134Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/drivetestmandarsankhe/configs [none]
+[debug] [2024-08-17T21:57:56.290Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/drivetestmandarsankhe/configs 200
+[debug] [2024-08-17T21:57:56.290Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/drivetestmandarsankhe/configs {}
+[debug] [2024-08-17T21:57:56.293Z] Validating nodejs source
+[debug] [2024-08-17T21:57:56.964Z] > [functions] package.json contents: {
+  "name": "drive-test",
+  "version": "1.0.0",
+  "description": "Assignment 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "lint": "eslint ."
+  },
+  "engines": {
+    "node": "20"
+  },
+  "keywords": [
+    "drive",
+    "test"
+  ],
+  "author": "Mandar Sankhe",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "connect-flash": "^0.1.1",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-fileupload": "^1.5.0",
+    "express-session": "^1.18.0",
+    "firebase-functions": "^5.0.1",
+    "mongoose": "^8.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.9.0",
+    "nodemon": "^3.1.0"
+  }
+}
+[debug] [2024-08-17T21:57:56.965Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2024-08-17T21:57:56.967Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-08-17T21:57:56.975Z] Found firebase-functions binary at 'D:\Projects\FullStack Programming\Drive Test\node_modules\.bin\firebase-functions'
+[info] Serving at port 8296
+
+[error] Sat, 17 Aug 2024 21:57:57 GMT express-session deprecated undefined resave option; provide resave option at index.js:17:3
+
+[error] Sat, 17 Aug 2024 21:57:57 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at index.js:17:3
+
+[error] node:events:497
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::8296
+    at Server.setupListenHandle [as _listen2] (node:net:1898:16)
+    at listenInCluster (node:net:1946:12)
+    at Server.listen (node:net:2044:7)
+    at Function.listen (D:\Projects\FullStack Programming\Drive Test\node_modules\express\lib\application.js:635:24)
+    at Object.<anonymous> (D:\Projects\FullStack Programming\Drive Test\index.js:12:5)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1925:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 8296
+}
+
+Node.js v20.13.0
+
+[debug] [2024-08-17T21:57:57.557Z] Failed to call quitquitquit. This often means the server failed to start request to http://localhost:8296/__/quitquitquit failed, reason:  {"message":"request to http://localhost:8296/__/quitquitquit failed, reason: ","type":"system","errno":"ECONNREFUSED","code":"ECONNREFUSED"}
+[debug] [2024-08-17T21:57:57.660Z] FetchError: request to http://127.0.0.1:8296/__/functions.yaml failed, reason: read ECONNRESET
+    at ClientRequest.<anonymous> (C:\Users\manda\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\node-fetch\lib\index.js:1501:11)
+    at ClientRequest.emit (node:events:519:28)
+    at ClientRequest.emit (node:domain:488:12)
+    at Socket.socketErrorListener (node:_http_client:500:9)
+    at Socket.emit (node:events:519:28)
+    at Socket.emit (node:domain:488:12)
+    at emitErrorNT (node:internal/streams/destroy:169:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-08-17T21:59:00.091Z] ----------------------------------------------------------------------
+[debug] [2024-08-17T21:59:00.093Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\manda\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2024-08-17T21:59:00.093Z] CLI Version:   13.15.2
+[debug] [2024-08-17T21:59:00.093Z] Platform:      win32
+[debug] [2024-08-17T21:59:00.093Z] Node Version:  v20.13.0
+[debug] [2024-08-17T21:59:00.093Z] Time:          Sat Aug 17 2024 17:59:00 GMT-0400 (Eastern Daylight Saving Time)
+[debug] [2024-08-17T21:59:00.094Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-08-17T21:59:00.138Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-08-17T21:59:00.138Z] > authorizing via signed-in user (mandarsankhe97@gmail.com)
+[debug] [2024-08-17T21:59:00.138Z] [iam] checking project drivetestmandarsankhe for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-08-17T21:59:00.140Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/drivetestmandarsankhe:testIamPermissions [none]
+[debug] [2024-08-17T21:59:00.140Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/drivetestmandarsankhe:testIamPermissions x-goog-quota-user=projects/drivetestmandarsankhe
+[debug] [2024-08-17T21:59:00.140Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/drivetestmandarsankhe:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-08-17T21:59:00.462Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/drivetestmandarsankhe:testIamPermissions 200
+[debug] [2024-08-17T21:59:00.463Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/drivetestmandarsankhe:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-08-17T21:59:00.464Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/drivetestmandarsankhe/serviceAccounts/drivetestmandarsankhe@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-08-17T21:59:00.464Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/drivetestmandarsankhe/serviceAccounts/drivetestmandarsankhe@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-08-17T21:59:00.733Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/drivetestmandarsankhe/serviceAccounts/drivetestmandarsankhe@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-08-17T21:59:00.733Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/drivetestmandarsankhe/serviceAccounts/drivetestmandarsankhe@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-08-17T21:59:00.734Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/drivetestmandarsankhe [none]
+[debug] [2024-08-17T21:59:00.992Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/drivetestmandarsankhe 200
+[debug] [2024-08-17T21:59:00.993Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/drivetestmandarsankhe {"projectId":"drivetestmandarsankhe","projectNumber":"152744818200","displayName":"drivetest","name":"projects/drivetestmandarsankhe","resources":{"hostingSite":"drivetestmandarsankhe"},"state":"ACTIVE","etag":"1_aaaba7f7-d8cb-448a-b1fa-4f36d7bb27eb"}
+[info] 
+[info] === Deploying to 'drivetestmandarsankhe'...
+[info] 
+[info] i  deploying functions, hosting 
+[info] Running command: npm run lint
+[info] +  functions: Finished running predeploy script. 
+[debug] [2024-08-17T21:59:01.782Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/drivetestmandarsankhe [none]
+[debug] [2024-08-17T21:59:01.978Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/drivetestmandarsankhe 200
+[debug] [2024-08-17T21:59:01.978Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/drivetestmandarsankhe {"projectId":"drivetestmandarsankhe","projectNumber":"152744818200","displayName":"drivetest","name":"projects/drivetestmandarsankhe","resources":{"hostingSite":"drivetestmandarsankhe"},"state":"ACTIVE","etag":"1_aaaba7f7-d8cb-448a-b1fa-4f36d7bb27eb"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2024-08-17T21:59:01.982Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-08-17T21:59:01.982Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/drivetestmandarsankhe
+[debug] [2024-08-17T21:59:01.984Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-08-17T21:59:01.984Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/drivetestmandarsankhe
+[debug] [2024-08-17T21:59:01.985Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/cloudbuild.googleapis.com [none]
+[debug] [2024-08-17T21:59:01.985Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/cloudbuild.googleapis.com x-goog-quota-user=projects/drivetestmandarsankhe
+[debug] [2024-08-17T21:59:01.986Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/artifactregistry.googleapis.com [none]
+[debug] [2024-08-17T21:59:01.986Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/artifactregistry.googleapis.com x-goog-quota-user=projects/drivetestmandarsankhe
+[debug] [2024-08-17T21:59:02.298Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/cloudbuild.googleapis.com 200
+[debug] [2024-08-17T21:59:02.299Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2024-08-17T21:59:02.328Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/runtimeconfig.googleapis.com 200
+[debug] [2024-08-17T21:59:02.328Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-08-17T21:59:02.329Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/artifactregistry.googleapis.com 200
+[debug] [2024-08-17T21:59:02.330Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2024-08-17T21:59:02.407Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/cloudfunctions.googleapis.com 200
+[debug] [2024-08-17T21:59:02.407Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/drivetestmandarsankhe/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2024-08-17T21:59:02.408Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/drivetestmandarsankhe/adminSdkConfig [none]
+[debug] [2024-08-17T21:59:02.726Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/drivetestmandarsankhe/adminSdkConfig 200
+[debug] [2024-08-17T21:59:02.727Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/drivetestmandarsankhe/adminSdkConfig {"projectId":"drivetestmandarsankhe","storageBucket":"drivetestmandarsankhe.appspot.com"}
+[debug] [2024-08-17T21:59:02.728Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/drivetestmandarsankhe/configs [none]
+[debug] [2024-08-17T21:59:02.891Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/drivetestmandarsankhe/configs 200
+[debug] [2024-08-17T21:59:02.892Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/drivetestmandarsankhe/configs {}
+[debug] [2024-08-17T21:59:02.895Z] Validating nodejs source
+[debug] [2024-08-17T21:59:03.630Z] > [functions] package.json contents: {
+  "name": "drive-test",
+  "version": "1.0.0",
+  "description": "Assignment 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "lint": "eslint ."
+  },
+  "engines": {
+    "node": "20"
+  },
+  "keywords": [
+    "drive",
+    "test"
+  ],
+  "author": "Mandar Sankhe",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "connect-flash": "^0.1.1",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-fileupload": "^1.5.0",
+    "express-session": "^1.18.0",
+    "firebase-functions": "^5.0.1",
+    "mongoose": "^8.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.9.0",
+    "nodemon": "^3.1.0"
+  }
+}
+[debug] [2024-08-17T21:59:03.630Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2024-08-17T21:59:03.633Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-08-17T21:59:03.640Z] Found firebase-functions binary at 'D:\Projects\FullStack Programming\Drive Test\node_modules\.bin\firebase-functions'
+[info] Serving at port 8708
+
+[error] Sat, 17 Aug 2024 21:59:04 GMT express-session deprecated undefined resave option; provide resave option at index.js:17:3
+
+[error] Sat, 17 Aug 2024 21:59:04 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at index.js:17:3
+
+[error] node:events:497
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::8708
+    at Server.setupListenHandle [as _listen2] (node:net:1898:16)
+    at listenInCluster (node:net:1946:12)
+    at Server.listen (node:net:2044:7)
+    at Function.listen (D:\Projects\FullStack Programming\Drive Test\node_modules\express\lib\application.js:635:24)
+    at Object.<anonymous> (D:\Projects\FullStack Programming\Drive Test\index.js:12:5)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1925:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 8708
+}
+
+Node.js v20.13.0
+
+[debug] [2024-08-17T21:59:04.223Z] Failed to call quitquitquit. This often means the server failed to start request to http://localhost:8708/__/quitquitquit failed, reason:  {"message":"request to http://localhost:8708/__/quitquitquit failed, reason: ","type":"system","errno":"ECONNREFUSED","code":"ECONNREFUSED"}
+[debug] [2024-08-17T21:59:04.328Z] FetchError: request to http://127.0.0.1:8708/__/functions.yaml failed, reason: read ECONNRESET
+    at ClientRequest.<anonymous> (C:\Users\manda\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\node-fetch\lib\index.js:1501:11)
+    at ClientRequest.emit (node:events:519:28)
+    at ClientRequest.emit (node:domain:488:12)
+    at Socket.socketErrorListener (node:_http_client:500:9)
+    at Socket.emit (node:events:519:28)
+    at Socket.emit (node:domain:488:12)
+    at emitErrorNT (node:internal/streams/destroy:169:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+[error] 
+[error] Error: An unexpected error has occurred.

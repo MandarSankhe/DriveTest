@@ -1,4 +1,5 @@
 const express = require("express");
+const functions = require('firebase-functions');
 const app = new express();
 const expressSession = require("express-session");
 const mongoose = require("mongoose");
@@ -21,6 +22,8 @@ app.use(
   })
 );
 app.use(flash());
+
+exports.app = functions.https.onRequest(app);
 
 //database connection
 mongoose.connect(
