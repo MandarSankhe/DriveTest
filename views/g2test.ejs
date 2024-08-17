@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Header-->
+<%- include('layouts/header'); -%>
+
+    <body class="d-flex flex-column">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <%- include('layouts/navbar'); -%>
+                <section class="py-5">
+                    <div class="container px-5">
+                        <!-- Personal Details form-->
+                        <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
+                            <div class="text-center mb-5">
+                                <h1 class="fw-bolder">Welcome to G2 Test</h1>
+                            </div>
+                            <div class="row gx-5 justify-content-center">
+                                <div class="col-lg-8 col-xl-6">
+                                    <% if (typeof errorMessage !=="undefined" ) { %>
+                                        <div class="alert alert-danger" role="alert">
+                                            <%= errorMessage %>
+                                        </div>
+                                    <% } %>
+                                    <% if (licno=="Default" ) { %>
+                                        <form id="personalForm" method="post" enctype="application/x-www-form-urlencoded" action="/userData">
+                                            <div class="text-center mb-5">
+                                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+                                                    <i class="bi bi-person-circle"></i>
+                                                </div>
+                                                <h2 class="fw-bolder">Personal Details</h2>
+                                                <p class="lead fw-normal text-muted mb-0">This section is where you'll provide some basic information about yourself.</p>
+                                            </div>
+                                            <!-- Name input-->
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" name="fname" id="fname" value="<%= data.fname %>" maxlength="40" onkeydown="allowOnlyAlphabetic(event)" type="text" placeholder="Enter your first name..." required />
+                                                <label for="fname">First name</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" name="lname" id="lname" value="<%= data.lname %>" maxlength="40" onkeydown="allowOnlyAlphabetic(event)" type="text" placeholder="Enter your last name..." required />
+                                                <label for="lname">Last name</label>
+                                            </div>
+                                            <!-- License No. input-->
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" name="licno" id="licno" value="<%= data.licno %>" maxlength="15" type="text" placeholder="Enter your license number..." required />
+                                                <label for="licno">License No.</label>
+                                            </div>
+
+                                            <!-- Age and DOB input-->
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" name="age" id="age" value="<%= data.age %>" onkeydown="allowOnlyNum(event)" maxlength="2" type="number" min="18" max="150" placeholder="Enter your age..." required />
+                                                <label for="age">Age</label>
+                                            </div>
+                                            <br><br><br>
+
+                                            <!-- Car Details-->
+                                            <div class="text-center mb-5">
+                                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+                                                    <i class="bi bi-truck"></i>
+                                                </div>
+                                                <h2 class="fw-bolder">Vehicle Details</h2>
+                                                <p class="lead fw-normal text-muted mb-0">Tell us about the car you'll be using for your G2 test.</p>
+                                            </div>
+
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="make" name="make" type="text" value="<%= data.make %>" placeholder="Enter car make..." required />
+                                                <label for="make">Make</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="model" name="model" type="text" value="<%= data.model %>" placeholder="Enter your car model..." required />
+                                                <label for="model">Model</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="year" name="year" maxlength="4" value="<%= data.year %>" onkeydown="allowOnlyNum(event)" min="2010" max="2024" type="number" placeholder="Enter car manufacturing year..." required />
+                                                <label for="year">Manufacturing Year</label>
+                                            </div>
+
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="plate" name="plate" type="text" value="<%= data.plate %>" maxlength="6" placeholder="Enter plate no. of car..." required />
+                                                <label for="plate">Plate Number</label>
+                                            </div>
+                                            <br><br><br>
+
+                                            <!-- Appointment Details-->
+                                            <div class="text-center mb-5">
+                                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+                                                    <i class="bi bi-truck"></i>
+                                                </div>
+                                                <h2 class="fw-bolder">Appointment Details</h2>
+                                                <p class="lead fw-normal text-muted mb-0">Make your appointment for driving test
+                                                <div class="form-floating mb-3">
+                                                    <input class="form-control" name="date" id="date" type="date" placeholder="Enter the date.." onchange="updateAvailableTimes()" value="<%= date %>" required />
+                                                    <label for="name">Date</label>
+                                                </div>
+                                                <!-- Time input-->
+                                                <div class="form-floating mb-3">
+                                                    <div class="form-group">
+                                                        <% if (bookedTimes.length> 0) { %>
+                                                            <label for="time">Select Time</label> <br>
+                                                            <% for (const time of bookedTimes) { %>
+                                                                <div class="form-check-inline">
+                                                                    <input class="form-check-input" type="radio" name="time" value="<%= time %>">
+                                                                    <label class="form-check-label" for="time-<%= time %>">
+                                                                        <%= time %>
+                                                                    </label>
+                                                                </div>
+                                                            <% } %>
+                                                        <% } else { %>
+                                                            <label class="text-danger">No time slot available for this date.</label>
+                                                            <br>
+                                                            <label class="text-danger">Please select other dates.</label>
+                                                        <% } %>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Submit Button-->
+                                                <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button></div>
+                                        </form>
+                                        <form id="updateForm" method="post" action="/getAvailableSlot">
+                                            <input type="hidden" name="date" id="hiddenDate" />
+                                            <input type="hidden" name="data" id="hiddenData" />
+                                        </form>
+                                    <% } else { %>
+
+                                        <div class="alert alert-info" role="alert">
+                                            You have already provided personal and car details. Below are the details:
+                                        </div>
+
+                                        <div class="text-center mb-5">
+                                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+                                                <i class="bi bi-person-circle"></i>
+                                            </div>
+                                            <h2 class="fw-bolder">Personal Details</h2>
+                                            <p class="lead fw-normal text-muted mb-0">Here are your personal details.</p>
+                                        </div>
+
+                                        <!-- Name Details-->
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" value="<%= users.firstName %>" name="fname" id="fname" readonly />
+                                            <label for="fname">First name</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" name="lname" id="lname" value="<%= users.lastName %>" readonly />
+                                            <label for="lname">Last name</label>
+                                        </div>
+                                        <!-- License No. Details-->
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="licno" name="licno" value="<%= users.licenseNumber %>" readonly />
+                                            <label for="licno">License No.</label>
+                                        </div>
+
+                                        <!-- Age Details-->
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" name="age" id="age" value="<%= users.age %>" readonly />
+                                            <label for="age">Age</label>
+                                        </div>
+                                        <br><br><br>
+
+                                        <!-- Car Details-->
+                                        <div class="text-center mb-5">
+                                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+                                                <i class="bi bi-truck"></i>
+                                            </div>
+                                            <h2 class="fw-bolder">Vehicle Details</h2>
+                                            <p class="lead fw-normal text-muted mb-0">Here are your car details</p>
+                                        </div>
+
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="make" name="make" value="<%= users.car_details.make %>" readonly />
+                                            <label for="make">Make</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="model" name="model" value="<%= users.car_details.model %>" readonly />
+                                            <label for="model">Model</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="year" name="year" value="<%= users.car_details.year %>" readonly />
+                                            <label for="year">Manufacturing Year</label>
+                                        </div>
+
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="plate" name="plate" value="<%= users.car_details.plateno %>" readonly />
+                                            <label for="plate">Plate Number</label>
+                                        </div>
+
+                                        <!-- Appointment Details-->
+                                        <div class="text-center mb-5">
+                                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+                                                <i class="bi bi-truck"></i>
+                                            </div>
+                                            <h2 class="fw-bolder">Appointment Details</h2>
+                                            <p class="lead fw-normal text-muted mb-0">Your appointment for driving test is as follows</p>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" value="<%= users.appointmentId.date %>" readonly />
+                                                <label for="name">Date</label>
+                                            </div>
+                                            <!-- Time input-->
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" value="<%= users.appointmentId.time %>" readonly />
+                                                <label for="time">Appoint Time</label>
+                                            </div>
+                                        </div>
+
+                                        <!-- Examiner Comments -->
+                                        <h2 class="fw-bolder">Examiner's Comments</h2>
+                                        <div class="card mb-3">
+                                            <div class="card-body">
+                                                <% if (users.Comments != "Default" && users.TestType == "G2") { %>
+                                                    <p><%= users.Comments %></p>
+                                                <% } else { %>
+                                                    <p>No comments from the examiner.</p>
+                                                <% } %>
+                                            </div>
+                                        </div>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        </main>
+        <!-- Footer-->
+        <%- include('layouts/footer'); -%>
+    </body>
+</html>

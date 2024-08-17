@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layouts/header'); -%>
+
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <%- include('layouts/navbar'); -%>
+                <!-- Page Content-->
+                <section class="py-5">
+                    <div class="container px-5">
+                        <!-- Personal Details form-->
+                        <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
+                            <div class="row gx-5 justify-content-center">
+                                <div class="col-lg-8 col-xl-6">
+                                    <div class="text-center mb-5">
+                                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i
+                                                class="bi bi-file-earmark-person"></i></div>
+                                        <h1 class="fw-bolder">Welcome to G
+                                            Test</h1>
+                                        <p class="lead fw-normal text-muted mb-0">Stress-free
+                                            G test prep:
+                                            Everything you need to conquer your
+                                            test.</p>
+                                    </div>
+                                    <!-- Success message -->
+                                    <% if (typeof successMessage !=="undefined" ) { %>
+                                        <br>
+                                        <div class="alert alert-success" role="alert">
+                                            <%= successMessage %>
+                                        </div>
+                                        <% } %>
+
+                                            <form method="post" enctype="application/x-www-form-urlencoded"
+                                                action="/editDetails">
+                                                <div id="user-data">
+                                                    <!-- Display retrieved data -->
+
+                                                    <div class="mt-5">
+                                                        <!-- 1st time page load -->
+                                                        <% if ( users.licenseNumber=="Default" ) { %>
+                                                            <p>No user details found. Go to G2test page to enter all the
+                                                                details</p>
+                                                            <div class="d-grid"><a href="/g2test">Click here to Go
+                                                                    Back to
+                                                                    G2
+                                                                    page</a></div>
+                                                            <% } else { %>
+                                                                <h2 class="fw-bolder">User Data</h2>
+                                                                <div class="card mb-3">
+                                                                    <div class="card-body">
+                                                                        <h5 class="card-title">Personal
+                                                                            Details</h5>
+                                                                        <div class="mb-3">
+                                                                            <label class="fw-bold">First
+                                                                                name:</label>
+                                                                            <label>
+                                                                                <%= users.firstName %>
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="mb-3">
+                                                                            <label class="fw-bold">Last
+                                                                                name:</label>
+                                                                            <label>
+                                                                                <%= users.lastName %>
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="mb-3">
+                                                                            <label class="fw-bold">License
+                                                                                No.:</label>
+                                                                            <label>
+                                                                                <%= users.licenseNumber %>
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="mb-3">
+                                                                            <label class="fw-bold">Age:</label>
+                                                                            <label>
+                                                                                <%= users.age %>
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="mb-3">
+                                                                            <input class="invisible" name="_id"
+                                                                                value=<%=users._id %> />
+                                                                        </div>
+                                                                        <div class="mb-5"></div>
+
+                                                                        <h5 class="card-title">Vehicle
+                                                                            Details</h5>
+                                                                        <div class="form-floating mb-3">
+                                                                            <input class="form-control" id="make"
+                                                                                name="make" type="text"
+                                                                                value=<%=users.car_details.make %>
+                                                                            placeholder="Enter car make..."
+                                                                            data-sb-validations="required" />
+                                                                            <label for="make">Make</label>
+                                                                            <div class="invalid-feedback"
+                                                                                data-sb-feedback="make:required">
+                                                                                Make
+                                                                                is required.</div>
+                                                                        </div>
+                                                                        <div class="form-floating mb-3">
+                                                                            <input class="form-control" id="model"
+                                                                                name="model" type="text"
+                                                                                value=<%=users.car_details.model %>
+                                                                            placeholder="Enter your car model..."
+                                                                            data-sb-validations="required" />
+                                                                            <label for="model">Model</label>
+                                                                            <div class="invalid-feedback"
+                                                                                data-sb-feedback="model:required">
+                                                                                Model
+                                                                                is required.</div>
+                                                                        </div>
+                                                                        <div class="form-floating mb-3">
+                                                                            <input class="form-control" id="year"
+                                                                                name="year" maxlength="4"
+                                                                                value=<%=users.car_details.year %>
+                                                                            onkeydown="allowOnlyNum(event)"
+                                                                            min="2010"
+                                                                            max="2024"
+                                                                            type="number" placeholder="Enter car
+                                                                            manufacturing year..."
+                                                                            data-sb-validations="required" />
+                                                                            <label for="year">Manufacturing
+                                                                                Year</label>
+                                                                            <div class="invalid-feedback"
+                                                                                data-sb-feedback="year:required">
+                                                                                Year
+                                                                                is required.</div>
+                                                                        </div>
+
+                                                                        <div class="form-floating mb-3">
+                                                                            <input class="form-control" id="plate"
+                                                                                maxlength="6" name="plate" type="text"
+                                                                                value=<%=users.car_details.plateno %>
+                                                                            placeholder="Enter plate no. of car..."
+                                                                            data-sb-validations="required" />
+                                                                            <label for="plate">Plate
+                                                                                Number</label>
+                                                                            <div class="invalid-feedback"
+                                                                                data-sb-feedback="plate:required">
+                                                                                Plate
+                                                                                Number is
+                                                                                required.</div>
+                                                                        </div>
+                                                                        <!-- Submit Button-->
+                                                                        <div class="d-grid"><button
+                                                                                class="btn btn-primary btn-lg"
+                                                                                id="submitButton" type="submit">Edit
+                                                                                Vehicle
+                                                                                Details</button></div>
+                                                                    </div>
+                                                                </div>
+                                                                <% } %>
+
+                                                    </div>
+
+                                                </div>
+                                            </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        </main>
+        <!-- Footer-->
+        <%- include('layouts/footer'); -%>
+    </body>
+
+</html>
