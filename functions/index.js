@@ -8,9 +8,8 @@ const flash = require("connect-flash");
 app.use(express.static("public"));
 app.use(express.static("resources"));
 app.set("view engine", "ejs");
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}`);
+app.listen(4005, () => {
+  console.log(`App listening on port 4005`);
 });
 app.use(express.urlencoded({ extended: true }));
 app.use(
@@ -22,8 +21,6 @@ app.use(
   })
 );
 app.use(flash());
-
-exports.app = functions.https.onRequest(app);
 
 //database connection
 mongoose.connect(
@@ -70,7 +67,7 @@ const checkUserExaminerAccess = require("./middlewares/checkUserExaminerAccess")
 const checkUserDriverAccess = require("./middlewares/checkUserDriverAccess");
 
 //Route to handle controller
-app.get("/", homeController); //Loads home page (dashboard)
+app.get("/home", homeController); //Loads home page (dashboard)
 app.get("/g2test", checkUserDriverAccess, g2testController); //loads G2test page for Driver
 app.get("/gtest", checkUserDriverAccess, gtestController); //Loads gtest page for Driver
 app.get("/appointment", appointmentController); //loads appointment page for Admin
@@ -98,3 +95,5 @@ app.post("/getAvailableSlot", getAvailableSlotController); //get stored timeslot
 app.get("/users/:id", getUserDetailsController);
 app.post("/resultData", resultController);
 app.post("/examResult", checkUserAdminAccess, examResultController);
+
+exports.app = functions.https.onRequest(app);

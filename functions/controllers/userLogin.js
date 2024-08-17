@@ -22,7 +22,7 @@ module.exports = async (req, res) => {
         //send details to show on Dashboard
         req.session.userName = user.username;
         req.session.fullName = user.firstName + " " + user.lastName;
-        res.redirect("/");
+        res.redirect("/home");
       } else {
         //if username is right, but password is wrong, which means this user is already registered,
         //so redirect to same page to enter the correct password

@@ -50,7 +50,7 @@ module.exports = async (req, res) => {
             req.session.fullName = body.fname + " " + body.lname  //for dynamic dashboard welcome message
 
         )
-        res.redirect('/')
+        res.redirect('/home')
     } catch (error) {
         //handle error
         console.log(error)
